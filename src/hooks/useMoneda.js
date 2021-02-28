@@ -1,5 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const Label = styled.label`
   font-family: 'Bebas Neue', cursive;
@@ -44,6 +45,12 @@ const useMoneda = (label, initState, options) => {
 
   //retornar state y funcion que modifica el state
   return [state, Select, updateState];
+};
+
+useMoneda.propTypes = {
+  label: PropTypes.string.isRequired,
+  initState: PropTypes.any.isRequired,
+  options: PropTypes.object.isRequired,
 };
 
 export default useMoneda;

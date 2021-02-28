@@ -6,6 +6,7 @@ import useCryptomoneda from '../hooks/useCryptomoneda';
 import axios from 'axios';
 
 import Error from './Error';
+import PropTypes from 'prop-types';
 
 const Boton = styled.input`
   margin-top: 20px;
@@ -57,6 +58,7 @@ const Formulario = ({guardarCryptomoneda, guardarMoneda, APIkey}) => {
       guardarCrypto(response.data.Data);
     };
     consultarAPI();
+    //eslint-disable-next-line
   }, []);
 
   // cuando el usuario hace submit
@@ -83,6 +85,12 @@ const Formulario = ({guardarCryptomoneda, guardarMoneda, APIkey}) => {
       <Boton type="submit" value="Calcular" />
     </form>
   );
+};
+
+Formulario.propTypes = {
+  guardarCryptomoneda: PropTypes.func.isRequired,
+  guardarMoneda: PropTypes.func.isRequired,
+  APIkey: PropTypes.string.isRequired,
 };
 
 export default Formulario;

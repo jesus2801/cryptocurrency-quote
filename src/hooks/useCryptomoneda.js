@@ -1,5 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const Label = styled.label`
   font-family: 'Bebas Neue', cursive;
@@ -44,6 +45,12 @@ const useCryptomoneda = (label, initState, options) => {
 
   //retornar state y funcion que modifica el state
   return [state, SelectCrypto, updateState];
+};
+
+useCryptomoneda.propTypes = {
+  label: PropTypes.string.isRequired,
+  initState: PropTypes.any.isRequired,
+  options: PropTypes.object.isRequired,
 };
 
 export default useCryptomoneda;
